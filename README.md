@@ -28,7 +28,7 @@
 **CYBER-X** é um poderoso UserBot de Telegram _Pluggable_ escrito em _Python_ usando [Pyrogram](https://github.com/pyrogram/pyrogram).
 <br>
 <p align="center">
-    <a href="https://t.me/rafa013z"><img src="https://i.imgur.com/IBtL4qo.jpeg=telegram&style=social" width=220px></a></p>
+    <a href="https://t.me/rafa013z"><img src="https://i.imgur.com/IBtL4qo.jpeg=telegram&style=social" width=600px></a></p>
 
 ## Isenção de responsabilidade
 ```
