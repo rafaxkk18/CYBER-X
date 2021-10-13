@@ -33,40 +33,40 @@
 ## Disclaimer
 ```
 /**
-   ⚠️Kang at your own risk⚠️          
-   Your Telegram account may get banned.
-   I am not responsible for any improper use of this bot
-   This bot is intended for the purpose of having fun with memes,
-   as well as efficiently managing groups.
-   It can help you with managing yourself as well.
-   You ended up spamming groups, getting reported left and right,
-   and then you ended up in a Final Battle with Telegram
-   and at the end the Telegram Team
-   deleted your account?
-   And after that, you pointed your fingers at us
-   for getting your account deleted?
-   We will be rolling on the floor laughing at you.
-   Yes! you heard it right.
+ ⚠️Execute por sua própria conta e risco⚠️
+   Sua conta do Telegram pode ser banida.
+   Eu não sou responsável por qualquer uso indevido deste bot
+   Este bot tem o objetivo de se divertir com memes,
+   bem como gerenciar grupos de forma eficiente.
+   Ele também pode ajudá-lo a se controlar.
+   Você acabou enviando spam para grupos, sendo denunciado a torto e a direito,
+   e então você acabou em uma Batalha Final com o Telegram
+   e no final a Equipe do Telegram
+   excluiu sua conta?
+   E depois disso, você apontou seus dedos para nós
+   para obter sua conta excluída?
+   Estaremos rolando no chão rindo de você.
+   Sim! você ouviu direito.
 /**
 ```
-## Requirements 
+## Requisitos: 
 * Python 3.8 or Higher
 * Telegram [API Keys](https://my.telegram.org/apps)
 * Google Drive [API Keys](https://console.developers.google.com/)
 * MongoDB [Database URL](https://cloud.mongodb.com/)
-## How To Deploy 
+## Como dar deploy 
 * With Heroku:
 <p align="center">
    <a href = "https://heroku.com/deploy?template=https://github.com/code-pms/MyGpack"><img src="https://telegra.ph/file/57c4edb389224c9cf9996.png" alt="Press to Takeoff" width="490px"></a>
 </p>
 <br>
 
-> **NOTE** : your can fill other vars as your need and they are optional. (settings -> reveal config vars)
-* First click The Button Above.
-* Fill `API_ID`, `API_HASH`, `DATABASE_URL`, `LOG_CHANNEL_ID`, `HEROKU_APP_NAME` and `HEROKU_API_KEY` (**required**)
-* Then fill Dual Mode vars : `OWNER_ID`, `BOT_TOKEN` and `HU_STRING_SESSION`
-* Then fill [other **non-required** vars](https://telegra.ph/Heroku-Vars-for-USERGE-X-08-25) later
-* Finally **hit deploy** button
+> **Aviso** : você pode preencher outros vars conforme sua necessidade e eles são opcionais. (configurações -> revelar vars de configuração)
+* Primeiro clique no botão acima.
+* preencher `API_ID`, `API_HASH`, `DATABASE_URL`, `LOG_CHANNEL_ID`, `HEROKU_APP_NAME` and `HEROKU_API_KEY` (**required**)
+* Em seguida, preencha Dual Mode vars : `OWNER_ID`, `BOT_TOKEN` e `HU_STRING_SESSION`
+* Em seguida, preencha [outras ** variáveis ** não obrigatórias](https://telegra.ph/Heroku-Vars-for-USERGE-X-08-25) later
+* Finalmente ** clique no botão Deploy **
 ## String Session
 **VAR ->** `HU_STRING_SESSION`
 #### By HEROKU
