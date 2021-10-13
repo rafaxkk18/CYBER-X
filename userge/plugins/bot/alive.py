@@ -228,11 +228,11 @@ class Bot_Alive:
     def alive_info() -> str:
         alive_info_ = f"""
 <a href="https://t.me/rafa013z"><b>Cyber-X</a> is Up and Running.</b>
-
-  🐍   <b>𝐏𝐲𝐭𝐡𝐨𝐧:</b>    <code>v{versions.__python_version__}</code>
-  🔥   <b>𝐏𝐲𝐫𝐨𝐠𝐫𝐚𝐦:</b>    <code>v{versions.__pyro_version__}</code>
-  🧬   <b>𝑿:</b>    <code>v{get_version()}</code>
-  🥷    <b>𝕮𝖞𝖇𝖊𝖗-𝖃:</b> <code>v{get_version()}</code
+🕷️"𝙤𝙡𝙖 𝙢𝙚𝙨𝙩𝙧𝙚
+𝙘𝙮𝙗𝙚𝙧𝙭 𝙞'𝙩𝙨 𝙧𝙪𝙣𝙣𝙞𝙣𝙜 𝙣𝙤𝙧𝙢𝙖𝙡𝙡𝙮"🕷️
+  🐍   <b>𝐏𝐲𝐭𝐡𝐨𝐧:</b> <code>v{versions.__python_version__}</code>
+  🔥   <b>𝐏𝐲𝐫𝐨𝐠𝐫𝐚𝐦:</b> <code>v{versions.__pyro_version__}</code>
+  🥷    <b>𝕮𝖞𝖇𝖊𝖗-𝖃
 <b>{Bot_Alive._get_mode()}</b>    <code>|</code>    🕔  <b>{userge.uptime}</b>
 """
         return alive_info_
