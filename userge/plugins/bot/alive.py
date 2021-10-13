@@ -198,7 +198,7 @@ if userge.has_bot:
 
 
 def _parse_arg(arg: bool) -> str:
-    return " ✅ 𝙴𝚗𝚊𝚋𝚕𝚎𝚍" if arg else " ❌ 𝙳𝚒𝚜𝚊𝚋𝚕𝚎𝚍"
+    return " ✅ ativado" if arg else " ❌ desativado"
 
 
 class Bot_Alive:
@@ -228,9 +228,11 @@ class Bot_Alive:
     def alive_info() -> str:
         alive_info_ = f"""
 -漫~*'¨¯¨'*·舞~ Cyber-X ~舞*'¨¯¨'*·~漫-
+
   🐍   <b>Python ✧:･ﾟ</b> <code>v{versions.__python_version__}</code>
   🔥   <b>Pyrogram ✧:･ﾟ</b> <code>v{versions.__pyro_version__}</code>
   🧬   <b>𝑿 ✧:･ﾟ</b> <code>v{get_version()}</code>
+  
 -漫~*'¨¯¨'*·舞~ Cyber-X ~舞*'¨¯¨'*·~漫-
 """
         return alive_info_
@@ -247,8 +249,8 @@ class Bot_Alive:
     def alive_buttons() -> InlineKeyboardMarkup:
         buttons = [
             [
-                InlineKeyboardButton(text="🔧  SETTINGS", callback_data="settings_btn"),
-                InlineKeyboardButton(text="⚡  REPO", url=Config.UPSTREAM_REPO),
+                InlineKeyboardButton(text="🔧  configurações", callback_data="settings_btn"),
+                InlineKeyboardButton(text="⚡  repo", url=Config.UPSTREAM_REPO),
             ]
         ]
         return InlineKeyboardMarkup(buttons)
