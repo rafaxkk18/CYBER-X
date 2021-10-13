@@ -1,7 +1,7 @@
-<h2 align="center"><b>Owner: <a href="https://t.me/rafa013z">𝚂𝚢𝚗𝚝𝚊𝚡 ░ Σrr♢r</a></b></h2>
+<h2 align="center"><b>Owner: <a href="https://t.me/rafa013z">ERRO 404 ░ Σrr♢r</a></b></h2>
 <br>
 <p align="center">
-   <a href="https://github.com/rafaxkk18/Hammer-X.git"><https://i.imgur.com/WsVRFGR.jpeg" alt="Cyber-X" width=400px></a>
+   <a href="https://github.com/rafaxkk18/Hammer-X.git"><https://i.imgur.com/IBtL4qo.jpeg" alt="Cyber-X" width=400px></a>
    <br>
    <br>
 </p>
@@ -25,7 +25,7 @@
 [![Docker Image](https://img.shields.io/docker/image-size/varietyjames1/userge_x?color=blue&label=Docker%20Size&style=flat-square&logo=docker&logoColor=white)](https://hub.docker.com/r/varietyjames1/userge_x/tags?page=1&ordering=last_updated)
 <br>
 
-**USERGE-X** is a Powerful , _Pluggable_ Telegram UserBot written in _Python_ using [Pyrogram](https://github.com/pyrogram/pyrogram).
+**CYBER-X** é um poderoso UserBot de Telegram _Pluggable_ escrito em _Python_ usando[Pyrogram](https://github.com/pyrogram/pyrogram).
 <br>
 <p align="center">
     <a href="https://t.me/rafa013z"><img src="https://i.imgur.com/WsVRFGR.jpeg=telegram&style=social" width=220px></a></p>
