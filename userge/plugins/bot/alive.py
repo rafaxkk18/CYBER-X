@@ -245,12 +245,15 @@ class Bot_Alive:
             return "🤖  BOT"
         return "👤  USER"
 
-    @staticmethod
+   @staticmethod
     def alive_buttons() -> InlineKeyboardMarkup:
         buttons = [
             [
-                InlineKeyboardButton(text="🔧  configurações", callback_data="settings_btn"),
-                InlineKeyboardButton(text="⚡  repo", url=Config.UPSTREAM_REPO),
+                InlineKeyboardButton(text="⚙️  ᴄᴏɴꜰɪɢ", callback_data="settings_btn"),
+                InlineKeyboardButton(text="💭  sᴛᴀᴛᴜs", callback_data="status_alive"),
+            ],
+            [
+                InlineKeyboardButton(text="✨  ᴜᴘᴅᴀᴛᴇs", url="t.me/kannaxup"),
             ]
         ]
         return InlineKeyboardMarkup(buttons)
