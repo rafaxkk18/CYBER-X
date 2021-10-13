@@ -65,16 +65,16 @@
 * Primeiro clique no botão acima.
 * preencher `API_ID`, `API_HASH`, `DATABASE_URL`, `LOG_CHANNEL_ID`, `HEROKU_APP_NAME` and `HEROKU_API_KEY` (**required**)
 * Em seguida, preencha Dual Mode vars : `OWNER_ID`, `BOT_TOKEN` e `HU_STRING_SESSION`
-* Em seguida, preencha [outras ** variáveis ** não obrigatórias](https://telegra.ph/Heroku-Vars-for-USERGE-X-08-25) later
+* Em seguida, preencha [outras ** variáveis ** não obrigatórias](https://telegra.ph/Heroku-Vars-for-USERGE-X-08-25) mais tarde
 * Finalmente ** clique no botão Deploy **
 ## String Session
 **VAR ->** `HU_STRING_SESSION`
 #### By HEROKU
 - [open your app](https://dashboard.heroku.com/apps/) then go to **more** -> **run console** and type `bash genStr` and click **run**.
-#### On REPL
-- [Generate on REPL](https://repl.it/@Leorio/stringsessiongen#main.py)
-### Read more
-<details>
+#### sobre REPL
+- [Gerar sobre REPL](https://repl.it/@Leorio/stringsessiongen#main.py)
+### Leia mais
+<detalhes>
   <summary><b>Details and Guides</b></summary>
 
 ## Other Ways
