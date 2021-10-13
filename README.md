@@ -1,7 +1,7 @@
 <h2 align="center"><b>Owner: <a href="https://t.me/rafa013z">ERRO 404 ░ Σrr♢r</a></b></h2>
 <br>
 <p align="center">
-   <a href="https://github.com/rafaxkk18/Hammer-X.git"><https://i.imgur.com/IBtL4qo.jpeg" alt="Cyber-X" width=400px></a>
+   <a href="https://github.com/rafaxkk18/Hammer-X.git"><https://i.imgur.com/IBtL4qo.jpeg" alt="Cyber-X" width=600px></a>
    <br>
    <br>
 </p>
