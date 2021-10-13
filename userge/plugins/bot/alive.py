@@ -2,7 +2,6 @@
 
 import asyncio
 from datetime import datetime
-from Cyberx.utils.functions import rand_key
 from re import compile as comp_regex
 
 from pyrogram import filters
@@ -10,16 +9,17 @@ from pyrogram.errors import BadRequest, FloodWait, Forbidden, MediaEmpty
 from pyrogram.file_id import PHOTO_TYPES, FileId
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
-from Cyberx import Config, Message, get_version, Cyberx
-from Cyberx.core.ext import RawClient
-from Cyberx.utils import get_file_id, rand_array
+from userge import Config, Message, get_version, userge, versions
+from userge.core.ext import RawClient
+from userge.utils import get_file_id, rand_array
 
 _ALIVE_REGEX = comp_regex(
-    r"http[s]?://(i\.imgur\.com|telegra\.ph/file|t\.me)/(\w+)(?:\.|/)(gif|mp4|jpg|png|jpeg|[0-9]+)(?:/([0-9]+))?"
+    r"http[s]?://(i\.imgur\.com|telegra\.ph/file|t\.me)/(\w+)(?:\.|/)(gif|jpg|png|jpeg|[0-9]+)(?:/([0-9]+))?"
 )
 _USER_CACHED_MEDIA, _BOT_CACHED_MEDIA = None, None
 
-LOGGER = Cyberx.getLogger(__name__)
+LOGGER = userge.getLogger(__name__)
+
 
 async def _init() -> None:
     global _USER_CACHED_MEDIA, _BOT_CACHED_MEDIA
@@ -29,25 +29,25 @@ async def _init() -> None:
             try:
                 if Config.HU_STRING_SESSION:
                     _USER_CACHED_MEDIA = get_file_id(
-                        await Cyberx.get_messages(am_link[0], am_link[1])
+                        await userge.get_messages(am_link[0], am_link[1])
                     )
             except Exception as u_rr:
                 LOGGER.debug(u_rr)
             try:
-                if Cyberx.has_bot:
+                if userge.has_bot:
                     _BOT_CACHED_MEDIA = get_file_id(
-                        await Cyberx.bot.get_messages(am_link[0], am_link[1])
+                        await userge.bot.get_messages(am_link[0], am_link[1])
                     )
             except Exception as b_rr:
                 LOGGER.debug(b_rr)
 
 
-@Cyberx.on_cmd("alive", about={"header": "Just For Fun"}, allow_channels=False)
+@userge.on_cmd("alive", about={"header": "Just For Fun"}, allow_channels=False)
 async def alive_inline(message: Message):
     try:
         if message.client.is_bot:
             await send_alive_message(message)
-        elif Cyberx.has_bot:
+        elif userge.has_bot:
             try:
                 await send_inline_alive(message)
             except BadRequest:
@@ -59,12 +59,12 @@ async def alive_inline(message: Message):
 
 
 async def send_inline_alive(message: Message) -> None:
-    _bot = await Cyberx.bot.get_me()
+    _bot = await userge.bot.get_me()
     try:
-        i_res = await Cyberx.get_inline_bot_results(_bot.username, "alive")
+        i_res = await userge.get_inline_bot_results(_bot.username, "alive")
         i_res_id = (
             (
-                await Cyberx.send_inline_bot_result(
+                await userge.send_inline_bot_result(
                     chat_id=message.chat.id,
                     query_id=i_res.query_id,
                     result_id=i_res.results[0].id,
@@ -78,7 +78,7 @@ async def send_inline_alive(message: Message) -> None:
         return
     await message.delete()
     await asyncio.sleep(200)
-    await Cyberx.delete_messages(message.chat.id, i_res_id)
+    await userge.delete_messages(message.chat.id, i_res_id)
 
 
 async def send_alive_message(message: Message) -> None:
@@ -93,19 +93,19 @@ async def send_alive_message(message: Message) -> None:
         reply_markup = None
         file_id = _USER_CACHED_MEDIA
         caption += (
-            f"\n⚡️  <a href={Config.UPSTREAM_REPO}><b>ʀᴇᴘᴏꜱɪᴛᴏʀɪᴏ</b></a>"
+            f"\n⚡️  <a href={Config.UPSTREAM_REPO}><b>REPO</b></a>"
             "    <code>|</code>    "
-            "👥  <a href=https://t.me/rafa013z><b>ꜱᴜᴘᴏʀᴛᴇ</b></a>"
+            "👥  <a href='https://t.me/useless_x'><b>SUPPORT</b></a>"
         )
     if not Config.ALIVE_MEDIA:
-        await client.send_animation(
+        await client.send_photo(
             chat_id,
-            animation=Bot_Alive.alive_default_imgs(),
+            photo=Bot_Alive.alive_default_imgs(),
             caption=caption,
             reply_markup=reply_markup,
         )
         return
-    url_ = rand_array(Config.ALIVE_MEDIA.strip())
+    url_ = Config.ALIVE_MEDIA.strip()
     if url_.lower() == "false":
         await client.send_message(
             chat_id,
@@ -141,9 +141,9 @@ async def send_alive_message(message: Message) -> None:
                 if not message.client.is_bot:
                     try:
                         refeshed_f_id = get_file_id(
-                            await Cyberx.get_messages(media_[0], media_[1])
+                            await userge.get_messages(media_[0], media_[1])
                         )
-                        await Cyberx.send_cached_media(
+                        await userge.send_cached_media(
                             chat_id,
                             file_id=refeshed_f_id,
                             caption=caption,
@@ -154,19 +154,9 @@ async def send_alive_message(message: Message) -> None:
                         _USER_CACHED_MEDIA = refeshed_f_id
 
 
-if Cyberx.has_bot:
+if userge.has_bot:
 
-    @Cyberx.bot.on_callback_query(filters.regex(pattern=r"^status_alive$"))
-    async def status_alive_(_, c_q: CallbackQuery):
-        c_q.from_user.id
-        await c_q.answer(
-            f"▫️ ᴍᴏᴅᴏ :  {Bot_Alive._get_mode()}\n▫️ ᴠᴇʀsɪᴏɴ  :  v{get_version()}\n▫️ ᴜᴘᴛɪᴍᴇ  :  {Cyberx.uptime}\n\n{rand_array(FRASES)}",
-            show_alert=True,
-        )
-        return status_alive_
-
-
-    @Cyberx.bot.on_callback_query(filters.regex(pattern=r"^settings_btn$"))
+    @userge.bot.on_callback_query(filters.regex(pattern=r"^settings_btn$"))
     async def alive_cb(_, c_q: CallbackQuery):
         allow = bool(
             c_q.from_user
@@ -187,17 +177,17 @@ if Cyberx.has_bot:
                 await asyncio.sleep(e.x)
             except BadRequest:
                 pass
-            ping = "🏓 ᴘɪɴɢ : {} ᴍs\n"
-        alive_s = "➕ ᴘʟᴜɢɪɴs + : {}\n".format(
+            ping = "𝗣𝗶𝗻𝗴:  🏓  {} sec\n"
+        alive_s = "➕ 𝗘𝘅𝘁𝗿𝗮 𝗣𝗹𝘂𝗴𝗶𝗻𝘀 : {}\n".format(
             _parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)
         )
-        alive_s += f"👥 ᴀɴᴛɪsᴘᴀᴍ : {_parse_arg(Config.SUDO_ENABLED)}\n"
-        alive_s += f"🚨 ᴀɴᴛɪsᴘᴀᴍ : {_parse_arg(Config.ANTISPAM_SENTRY)}\n"
+        alive_s += f"👥 𝗦𝘂𝗱𝗼 : {_parse_arg(Config.SUDO_ENABLED)}\n"
+        alive_s += f"🚨 𝗔𝗻𝘁𝗶𝘀𝗽𝗮𝗺 : {_parse_arg(Config.ANTISPAM_SENTRY)}\n"
         if Config.HEROKU_APP and Config.RUN_DYNO_SAVER:
-            alive_s += "⛽️ ᴅʏɴᴏ :  ✅ ᴀᴛɪᴠᴀᴅᴏ\n"
-        alive_s += f"💬 ʙᴏᴛ ꜰᴡᴅ : {_parse_arg(Config.BOT_FORWARDS)}\n"
-        alive_s += f"🛡 ᴘᴍ ʙʟᴏᴄᴋ : {_parse_arg(not Config.ALLOW_ALL_PMS)}\n"
-        alive_s += f"📝 ʟᴏɢ ᴘᴍ : {_parse_arg(Config.PM_LOGGING)}"
+            alive_s += "⛽️ 𝗗𝘆𝗻𝗼 𝗦𝗮𝘃𝗲𝗿 :  ✅ 𝙴𝚗𝚊𝚋𝚕𝚎𝚍\n"
+        alive_s += f"💬 𝗕𝗼𝘁 𝗙𝗼𝗿𝘄𝗮𝗿𝗱𝘀 : {_parse_arg(Config.BOT_FORWARDS)}\n"
+        alive_s += f"🛡 𝗣𝗠 𝗚𝘂𝗮𝗿𝗱 : {_parse_arg(not Config.ALLOW_ALL_PMS)}\n"
+        alive_s += f"📝 𝗣𝗠 𝗟𝗼𝗴𝗴𝗲𝗿 : {_parse_arg(Config.PM_LOGGING)}"
         if allow:
             end = datetime.now()
             m_s = (end - start).microseconds / 1000
@@ -208,7 +198,7 @@ if Cyberx.has_bot:
 
 
 def _parse_arg(arg: bool) -> str:
-    return " ✅ ᴀᴛɪᴠᴀᴅᴏ" if arg else " ❎ ᴅᴇsᴀᴛɪᴠᴀᴅᴏ"
+    return " ✅ 𝙴𝚗𝚊𝚋𝚕𝚎𝚍" if arg else " ❌ 𝙳𝚒𝚜𝚊𝚋𝚕𝚎𝚍"
 
 
 class Bot_Alive:
@@ -237,28 +227,28 @@ class Bot_Alive:
     @staticmethod
     def alive_info() -> str:
         alive_info_ = f"""
-🕷️"𝙤𝙡𝙖
-𝙘𝙮𝙗𝙚𝙧𝙭 𝙞'𝙩𝙨 𝙧𝙪𝙣𝙣𝙞𝙣𝙜 𝙣𝙤𝙧𝙢𝙖𝙡𝙡𝙮"🕷️
+<a href="https://telegram.dog/x_xtests"><b>USERGE-X</a> is Up and Running.</b>
+  🐍   <b>Python :</b>    <code>v{versions.__python_version__}</code>
+  🔥   <b>Pyrogram :</b>    <code>v{versions.__pyro_version__}</code>
+  🧬   <b>𝑿 :</b>    <code>v{get_version()}</code>
+<b>{Bot_Alive._get_mode()}</b>    <code>|</code>    🕔  <b>{userge.uptime}</b>
 """
         return alive_info_
 
     @staticmethod
     def _get_mode() -> str:
         if RawClient.DUAL_MODE:
-            return "DUAL"
+            return "↕️  DUAL"
         if Config.BOT_TOKEN:
-            return "BOT"
-        return "USER"
+            return "🤖  BOT"
+        return "👤  USER"
 
     @staticmethod
     def alive_buttons() -> InlineKeyboardMarkup:
         buttons = [
             [
-                InlineKeyboardButton(text="⚙️  𝕮𝖔𝖓𝖋𝖎𝖌", callback_data="settings_btn"),
-                InlineKeyboardButton(text="💭  𝕾𝖙𝖆𝖙𝖚𝖘", callback_data="status_alive"),
-            ],
-            [
-                InlineKeyboardButton(text="✨  𝖀𝖕𝖉𝖆𝖙𝖊𝖘", url="t.me/Cyberxup"),
+                InlineKeyboardButton(text="🔧  SETTINGS", callback_data="settings_btn"),
+                InlineKeyboardButton(text="⚡  REPO", url=Config.UPSTREAM_REPO),
             ]
         ]
         return InlineKeyboardMarkup(buttons)
@@ -266,7 +256,11 @@ class Bot_Alive:
     @staticmethod
     def alive_default_imgs() -> str:
         alive_imgs = [
-            "https://telegra.ph/file/4ae6e1ce6a10ba89940fd.gif",
+            "https://telegra.ph/file/11123ef7dff2f1e19e79d.jpg",
+            "https://i.imgur.com/uzKdTXG.jpg",
+            "https://telegra.ph/file/6ecab390e4974c74c3764.png",
+            "https://telegra.ph/file/995c75983a6c0e4499b55.png",
+            "https://telegra.ph/file/86cc25c78ad667ca5e691.png",
         ]
         return rand_array(alive_imgs)
 
