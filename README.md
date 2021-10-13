@@ -1,11 +1,11 @@
-<h2 align="center"><b>Owner: <a href="https://telegram.dog/deleteduser420">𝚂𝚢𝚗𝚝𝚊𝚡 ░ Σrr♢r</a></b></h2>
+<h2 align="center"><b>Owner: <a href="https://t.me/rafa013z">𝚂𝚢𝚗𝚝𝚊𝚡 ░ Σrr♢r</a></b></h2>
 <br>
 <p align="center">
-   <a href="https://github.com/code-rgb/USERGE-X"><img src="https://i.imgur.com/53mdl2v.png" alt="Userge-x" width=400px></a>
+   <a href="https://github.com/rafaxkk18/Hammer-X.git"><https://i.imgur.com/WsVRFGR.jpeg" alt="Cyber-X" width=400px></a>
    <br>
    <br>
 </p>
-<h1>USERGE-X</h1>
+<h1>CYBER-X</h1>
 <b>Pluggable Telegram UserBot</b>
 <br>
 <br>
@@ -28,9 +28,9 @@
 **USERGE-X** is a Powerful , _Pluggable_ Telegram UserBot written in _Python_ using [Pyrogram](https://github.com/pyrogram/pyrogram).
 <br>
 <p align="center">
-    <a href="https://telegram.dog/x_xtests"><img src="https://img.shields.io/badge/Support%20Group-USERGE--%F0%9D%91%BF-blue?&logo=telegram&style=social" width=220px></a></p>
+    <a href="https://t.me/rafa013z"><img src="https://i.imgur.com/WsVRFGR.jpeg=telegram&style=social" width=220px></a></p>
 
-## Disclaimer
+## Isenção de responsabilidade
 ```
 /**
  ⚠️Execute por sua própria conta e risco⚠️
