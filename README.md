@@ -70,7 +70,7 @@
 ## String Session
 **VAR ->** `HU_STRING_SESSION`
 #### By HEROKU
-- [open your app](https://dashboard.heroku.com/apps/) then go to **more** -> **run console** and type `bash genStr` and click **run**.
+- abra seu aplicativo e vá para mais -> console de execução e digite 'bash genStr' e clique em executar.
 #### sobre REPL
 - [Gerar sobre REPL](https://repl.it/@Leorio/stringsessiongen#main.py)
 ### Leia mais
