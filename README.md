@@ -46,7 +46,7 @@
    E depois disso, você apontou seus dedos para nós
    para obter sua conta excluída?
    Estaremos rolando no chão rindo de você.
-   Sim! você ouviu direito.
+   Sim! você ouviu direito (:.
 /**
 ```
 ## Requisitos: 
